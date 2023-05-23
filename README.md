@@ -93,9 +93,6 @@ Note that we can only connect to the robotic vehicle once we have downloaded an 
 
 Follow the README file located inside the [docker folder](./docker/).
 
-## License
-TBC
-
 ## Help / Contribution
 
 * Contact: **Marco A. Montes** (mmontes@catec.aero) or **Joaquín Borrego** (jborrego@catec.aero)
