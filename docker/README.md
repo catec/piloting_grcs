@@ -15,27 +15,10 @@
 ## Docker Image creation
 ---
 
-In order to create the gRCS docker image, you need to have access to the CATEC repositories on BitBucket.
-
-To hide the credentials of the docker image layers, export them as local environment variables to the terminal and run the creation script.
+In order to create the gRCS docker image, you need to run the following script:
 ```
-export USER=<bitbucket_username>
-export PASSWORD=<bitbucket_pass>
 ./create_grcs_image.sh
 ```
-
-### Image creation Troubleshooting
-
-If you get the following error, you should run the *./create_grcs_image.sh* command again and it will be fixed.
-
-```
-------
- > [9/15] RUN --mount=type=secret,id=user     --mount=type=secret,id=password     USER=$(cat /run/secrets/user) &&     PASSWORD=$(cat /run/secrets/password) &&     git clone -b docker_head https://$USER:$PASSWORD@bitbucket.org/fadacatec-ondemand/piloting_gcs.git:
-#19 0.335 cat: /run/secrets/user: No such file or directory
-------
-```
-
-This is because when the content of the secrets folder is read, it is deleted for security reasons. However, if we need to use the secrets in two different layers it is necessary to execute the script several times and the layers will be saved in the cache.
 
 ## Installation and usage on Ubuntu
 ---

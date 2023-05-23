@@ -13,10 +13,10 @@ WORKDIR $THIRD_PARTY_PATH
 
 RUN rosdep update && \
     rosdep install -y \
-      --from-paths . \
-      --ignore-src \
-      --rosdistro ${ROS_DISTRO} \
-      --as-root=apt:false
+    --from-paths . \
+    --ignore-src \
+    --rosdistro ${ROS_DISTRO} \
+    --as-root=apt:false
 RUN rm -rf /var/lib/apt/lists/*
 
 # install third party libs
@@ -27,11 +27,7 @@ RUN git clone https://github.com/fada-catec/piloting-mavsdk && \
     make -j6 && \
     make install
 
-RUN --mount=type=secret,id=user \
-    --mount=type=secret,id=password \
-    USER=$(cat /run/secrets/user) && \
-    PASSWORD=$(cat /run/secrets/password) && \
-    git clone https://$USER:$PASSWORD@bitbucket.org/fadacatec-ondemand/qslog.git && \
+RUN git clone https://github.com/fada-catec/qslog.git && \
     cd qslog && \
     mkdir build && cd build && \
     cmake .. -DCMAKE_BUILD_TYPE=Release && \
@@ -42,15 +38,11 @@ RUN --mount=type=secret,id=user \
 ARG PILOTING_WS=/root/piloting_ws
 RUN mkdir -p $PILOTING_WS/src
 WORKDIR $PILOTING_WS/src
-RUN --mount=type=secret,id=user \
-    --mount=type=secret,id=password \
-    USER=$(cat /run/secrets/user) && \
-    PASSWORD=$(cat /run/secrets/password) && \
-    git clone -b docker_head https://$USER:$PASSWORD@bitbucket.org/fadacatec-ondemand/piloting_gcs.git
+RUN git clone -b docker_head https://github.com/fada-catec/piloting_grcs.git
 
 WORKDIR $PILOTING_WS
 RUN /bin/bash -c '. /opt/ros/$ROS_DISTRO/setup.bash; \
-                  catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/ros/$ROS_DISTRO'
+    catkin_make -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/ros/$ROS_DISTRO'
 RUN cd $PILOTING_WS/build && make install
 
 WORKDIR "/root"
