@@ -1,8 +1,8 @@
 # PILOTING General Robot Control Station
 
-This repository contains the gRCS (General Robot Control Station) developments of the PILOTING H2020 project.ç
+This repository contains the gRCS (General Robot Control Station) developments of the PILOTING H2020 project.
 
-<img src="./doc/overview_grcs.png" alt="gRCS" height="50%" width="50%">
+<img src="./doc/overview_grcs.png" alt="gRCS" height="70%" width="70%">
 
 ## Dependencies installation
 
@@ -92,9 +92,6 @@ Note that we can only connect to the robotic vehicle once we have downloaded an 
 ## Docker container guide
 
 Follow the README file located inside the [docker folder](./docker/).
-
-## License
-TBC
 
 ## Help / Contribution
 
