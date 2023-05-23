@@ -1,8 +1,8 @@
 # PILOTING General Robot Control Station
 
-This repository contains the gRCS (General Robot Control Station) developments of the PILOTING H2020 project.ç
+This repository contains the gRCS (General Robot Control Station) developments of the PILOTING H2020 project.
 
-<img src="./doc/overview_grcs.png" alt="gRCS" height="50%" width="50%">
+<img src="./doc/overview_grcs.png" alt="gRCS" height="70%" width="70%">
 
 ## Dependencies installation
 
