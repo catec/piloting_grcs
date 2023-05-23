@@ -1,0 +1,66 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="2d-view">../data/icons/2d-view.png</file>
+        <file alias="3d-view">../data/icons/3d-view.png</file>
+        <file alias="checkbox_checked">../data/icons/checkbox-icon.png</file>
+        <file alias="checklist">../data/icons/checklist.png</file>
+        <file alias="cloud-icon">../data/icons/cloud-icon.png</file>
+        <file alias="cloud-cut">../data/icons/cloud-cut.png</file>
+        <file alias="config">../data/icons/config.png</file>
+        <file alias="config-visualiz">../data/icons/config-visualiz-icon-2.png</file>
+        <file alias="connect">../data/icons/connect.png</file>
+        <file alias="ddhl-config">../data/icons/ddhl-config.png</file>
+        <file alias="disconnect">../data/icons/disconnect.png</file>
+        <file alias="download-icon">../data/icons/download-icon.png</file>
+        <file alias="gcs-icon">../data/icons/gcs_icon.png</file>
+        <file alias="home-edit">../data/icons/home_edit.png</file>
+        <file alias="info">../data/icons/info.png</file>
+        <file alias="local-route-white">../data/icons/local_route_white.png</file>
+        <file alias="loaded-route-white">../data/icons/loaded_route_white.png</file>
+        <file alias="add-route">../data/icons/marker_pink_create.png</file>
+        <file alias="note-icon">../data/icons/notes-icon.png</file>
+        <file alias="pencil">../data/icons/pencil-icon.png</file>
+        <file alias="measure">../data/icons/ruler-icon.png</file>
+        <file alias="edit-route">../data/icons/marker_pink_edit.png</file>
+        <file alias="upload-icon">../data/icons/upload-icon.png</file>
+        <file alias="server-upload">../data/icons/server-upload.png</file>
+        <file alias="eye-on">../data/icons/eye-on.png</file>
+        <file alias="eye-off">../data/icons/eye-off.png</file>
+
+        <file alias="pfd_adi_back">../data/Svg/pfd/pfd_adi_back.svg</file>
+        <file alias="pfd_adi_barh">../data/Svg/pfd/pfd_adi_barh.svg</file>
+        <file alias="pfd_adi_barv">../data/Svg/pfd/pfd_adi_barv.svg</file>
+        <file alias="pfd_adi_doth">../data/Svg/pfd/pfd_adi_doth.svg</file>
+        <file alias="pfd_adi_dotv">../data/Svg/pfd/pfd_adi_dotv.svg</file>
+        <file alias="pfd_adi_ladd">../data/Svg/pfd/pfd_adi_ladd.svg</file>
+        <file alias="pfd_adi_mark">../data/Svg/pfd/pfd_adi_mark.svg</file>
+        <file alias="pfd_adi_mask">../data/Svg/pfd/pfd_adi_mask.svg</file>
+        <file alias="pfd_adi_path">../data/Svg/pfd/pfd_adi_path.svg</file>
+        <file alias="pfd_adi_roll">../data/Svg/pfd/pfd_adi_roll.svg</file>
+        <file alias="pfd_adi_slip">../data/Svg/pfd/pfd_adi_slip.svg</file>
+        <file alias="pfd_adi_turn">../data/Svg/pfd/pfd_adi_turn.svg</file>
+        <file alias="pfd_alt_back">../data/Svg/pfd/pfd_alt_back.svg</file>
+        <file alias="pfd_alt_frame">../data/Svg/pfd/pfd_alt_frame.svg</file>
+        <file alias="pfd_alt_ground">../data/Svg/pfd/pfd_alt_ground.svg</file>
+        <file alias="pfd_alt_scale">../data/Svg/pfd/pfd_alt_scale.svg</file>
+        <file alias="pfd_asi_back">../data/Svg/pfd/pfd_asi_back.svg</file>
+        <file alias="pfd_asi_frame">../data/Svg/pfd/pfd_asi_frame.svg</file>
+        <file alias="pfd_asi_scale">../data/Svg/pfd/pfd_asi_scale.svg</file>
+        <file alias="pfd_back">../data/Svg/pfd/pfd_back.svg</file>
+        <file alias="pfd_hsi_back">../data/Svg/pfd/pfd_hsi_back.svg</file>
+        <file alias="pfd_hsi_face">../data/Svg/pfd/pfd_hsi_face.svg</file>
+        <file alias="pfd_hsi_marks">../data/Svg/pfd/pfd_hsi_marks.svg</file>
+        <file alias="pfd_mask">../data/Svg/pfd/pfd_mask.svg</file>
+    </qresource>
+    <qresource prefix="/Style">
+        <file alias="indoorStyle">../data/styles/indoor_style.qss</file>
+        <file alias="outdoorStyle">../data/styles/outdoor_style.qss</file>
+        <file alias="greenAlarm">../data/styles/greenGradient.qss</file>
+        <file alias="darkgreenAlarm">../data/styles/darkgreenGradient.qss</file>
+        <file alias="yellowAlarm">../data/styles/yellowGradient.qss</file>
+        <file alias="orangeAlarm">../data/styles/orangeGradient.qss</file>
+        <file alias="redAlarm">../data/styles/redGradient.qss</file>
+        <file alias="darkredAlarm">../data/styles/darkredGradient.qss</file>
+        <file alias="blackAlarm">../data/styles/blackGradient.qss</file>
+    </qresource>
+</RCC>

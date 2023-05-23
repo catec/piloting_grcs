@@ -1,0 +1,37 @@
+# -----------------------------------------------
+#  File that provides "make uninstall" target
+#  We use the file 'install_manifest.txt'
+# -----------------------------------------------
+if(NOT EXISTS "@PROJECT_BINARY_DIR@/install_manifest.txt")
+   message(FATAL_ERROR "Cannot find install manifest: \"@PROJECT_BINARY_DIR@/install_manifest.txt\"")
+endif()
+
+file(READ "@PROJECT_BINARY_DIR@/install_manifest.txt" files)
+string(REGEX REPLACE "\n" ";" files "${files}")
+foreach(file ${files})
+   message(STATUS "Uninstalling: $ENV{DESTDIR}${file}")
+   if(IS_SYMLINK "$ENV{DESTDIR}${file}" OR EXISTS "$ENV{DESTDIR}${file}")
+      execute_process(
+         COMMAND @CMAKE_COMMAND@ -E remove "$ENV{DESTDIR}${file}"
+         OUTPUT_VARIABLE rm_out
+         RESULT_VARIABLE rm_retval)
+      if(NOT ${rm_retval} EQUAL 0)
+         message(FATAL_ERROR "Problem when removing $ENV{DESTDIR}${file}")
+      endif()
+   else()
+      message(STATUS "File $ENV{DESTDIR}${file} does not exist.")
+   endif()
+endforeach(file)
+
+if(EXISTS "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME@")
+   message(STATUS "Uninstalling: @CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME@")
+   execute_process(
+      COMMAND @CMAKE_COMMAND@ -E remove_directory "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME@"
+      OUTPUT_VARIABLE rm_out
+      RESULT_VARIABLE rm_retval)
+   if(NOT ${rm_retval} EQUAL 0)
+      message(FATAL_ERROR "Problem when removing @CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME@")
+   endif()
+endif()
+
+file(REMOVE "@PROJECT_BINARY_DIR@/install_manifest.txt")

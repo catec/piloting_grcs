@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<mavlink>
+  <include>common.xml</include>
+  <version>4</version>
+  <enums>
+    <!-- PILOTING specific MAV_CMD_* commands -->
+    <enum name="MAV_CMD">
+      <entry value="42000" name="MAV_CMD_NAV_WAYPOINT_QUATERNION">
+        <description>Navigate to waypoint.</description>
+        <param index="1" label="Quaternion W">Quaternion component w (1 in null-rotation)</param>
+        <param index="2" label="Quaternion X">Quaternion component x (0 in null-rotation)</param>
+        <param index="3" label="Quaternion Y">Quaternion component y (0 in null-rotation)</param>
+        <param index="4" label="Quaternion Z">Quaternion component z (0 in null-rotation)</param>
+        <param index="5" label="Position X" units="m">Position component x</param>
+        <param index="6" label="Position Y" units="m">Position component y</param>
+        <param index="7" label="Position Z" units="m">Position component z</param>
+      </entry>
+      <entry value="42001" name="MAV_CMD_DO_SET_HOME_QUATERNION">
+        <description>Changes the home location either to a specified location.</description>
+        <param index="1" label="Quaternion W">Quaternion component w (1 in null-rotation)</param>
+        <param index="2" label="Quaternion X">Quaternion component x (0 in null-rotation)</param>
+        <param index="3" label="Quaternion Y">Quaternion component y (0 in null-rotation)</param>
+        <param index="4" label="Quaternion Z">Quaternion component z (0 in null-rotation)</param>
+        <param index="5" label="Position X" units="m">Position component x</param>
+        <param index="6" label="Position Y" units="m">Position component y</param>
+        <param index="7" label="Position Z" units="m">Position component z</param>
+      </entry>
+    </enum>
+    <enum name="WAYPOINT_LIST_RESULT">
+      <description>Result of a waypoint list operation (in an WAYPOINT_LIST_ACK message).</description>
+      <entry value="0" name="WAYPOINT_LIST_ACCEPTED">
+        <description>Waypoint list accepted OK.</description>
+      </entry>
+      <entry value="1" name="WAYPOINT_LIST_ERROR">
+        <description>Generic error.</description>
+      </entry>
+      <entry value="2" name="WAYPOINT_LIST_UNSUPPORTED">
+        <description>Command is not supported (unknown).</description>
+      </entry>
+      <entry value="3" name="WAYPOINT_LIST_NO_SPACE">
+        <description>Waypoint items exceed storage space.</description>
+      </entry>
+      <entry value="4" name="WAYPOINT_LIST_INVALID">
+        <description>One of the parameters has an invalid value.</description>
+      </entry>
+      <entry value="5" name="WAYPOINT_LIST_INVALID_PARAM1">
+        <description>Param1 has an invalid value.</description>
+      </entry>
+      <entry value="6" name="WAYPOINT_LIST_INVALID_PARAM2">
+        <description>Param2 has an invalid value.</description>
+      </entry>
+      <entry value="7" name="WAYPOINT_LIST_INVALID_PARAM3">
+        <description>Param3 has an invalid value.</description>
+      </entry>
+      <entry value="8" name="WAYPOINT_LIST_INVALID_PARAM4">
+        <description>Param4 has an invalid value.</description>
+      </entry>
+      <entry value="9" name="WAYPOINT_LIST_INVALID_PARAM5">
+        <description>Param5 has an invalid value.</description>
+      </entry>
+      <entry value="10" name="WAYPOINT_LIST_INVALID_PARAM6">
+        <description>Param6 has an invalid value.</description>
+      </entry>
+      <entry value="11" name="WAYPOINT_LIST_INVALID_PARAM7">
+        <description>Param7 has an invalid value.</description>
+      </entry>
+      <entry value="12" name="WAYPOINT_LIST_INVALID_SEQUENCE">
+        <description>Waypoint item received out of sequence.</description>
+      </entry>
+      <entry value="13" name="WAYPOINT_LIST_CANCELLED">
+        <description>Current waypoint list operation cancelled (waypoint list upload or download).</description>
+      </entry>
+    </enum>
+
+    <enum name="CHECK_LIST_RESULT">
+      <description>Result of checklist downloading operation (in a CHECK_LIST_ACK message).</description>
+      <entry value="0" name="CHECK_LIST_ACCEPTED">
+        <description>Checklist accepted OK.</description>
+      </entry>
+      <entry value="1" name="CHECK_LIST_ERROR">
+        <description>Generic error.</description>
+      </entry>
+      <entry value="2" name="CHECK_LIST_NO_SPACE">
+        <description>Checklist items exceed storage space.</description>
+      </entry>
+      <entry value="3" name="CHECK_LIST_INVALID_SEQUENCE">
+        <description>Checklist item received out of sequence.</description>
+      </entry>
+      <entry value="4" name="CHECK_LIST_CANCELLED">
+        <description>Current checklist download operation cancelled.</description>
+      </entry>
+    </enum>
+
+    <enum name="ALARM_LIST_RESULT">
+      <description>Result of alarm list downloading operation (in an ALARM_LIST_ACK message).</description>
+      <entry value="0" name="ALARM_LIST_ACCEPTED">
+        <description>Alarm list accepted OK.</description>
+      </entry>
+      <entry value="1" name="ALARM_LIST_ERROR">
+        <description>Generic error.</description>
+      </entry>
+      <entry value="2" name="ALARM_LIST_NO_SPACE">
+        <description>Alarm list items exceed storage space.</description>
+      </entry>
+      <entry value="3" name="ALARM_LIST_INVALID_SEQUENCE">
+        <description>Alarm list item received out of sequence.</description>
+      </entry>
+      <entry value="4" name="ALARM_LIST_CANCELLED">
+        <description>Current alarm list download operation cancelled.</description>
+      </entry>
+    </enum>
+
+    <enum name="HL_ACTION_LIST_RESULT">
+      <description>Result of high-level action list downloading operation (in an HL_ACTION_LIST_ACK message).</description>
+      <entry value="0" name="HL_ACTION_LIST_ACCEPTED">
+        <description>High-level action list accepted OK.</description>
+      </entry>
+      <entry value="1" name="HL_ACTION_LIST_ERROR">
+        <description>Generic error.</description>
+      </entry>
+      <entry value="2" name="HL_ACTION_LIST_NO_SPACE">
+        <description>High-level action list items exceed storage space.</description>
+      </entry>
+      <entry value="3" name="HL_ACTION_LIST_INVALID_SEQUENCE">
+        <description>High-level action list item received out of sequence.</description>
+      </entry>
+      <entry value="4" name="HL_ACTION_LIST_CANCELLED">
+        <description>Current high-level action list download operation cancelled.</description>
+      </entry>
+    </enum>
+
+    <enum name="ALARM_STATUS_FLAGS">
+      <description>Alarm status flags used in ALARM_STATUS messages.</description>
+      <entry value="0" name="ALARM_STATUS_OK">
+        <description>Alarm in ok status.</description>
+      </entry>
+      <entry value="1" name="ALARM_STATUS_WARNING">
+        <description>Alarm in warning status.</description>
+      </entry>
+      <entry value="2" name="ALARM_STATUS_ERROR">
+        <description>Alarm in error status.</description>
+      </entry>
+    </enum>
+
+    <enum name="TEXT_STATUS_FLAGS">
+      <description>Indicates the severity level, used for TEXT_STATUS messages to indicate their relative urgency.</description>
+      <entry value="0" name="TEXT_STATUS_ERROR">
+        <description>Indicates an error in systems.</description>
+      </entry>
+      <entry value="1" name="TEXT_STATUS_WARNING">
+        <description>Indicates about a possible future error if this is not resolved within a given timeframe. Example would be a low battery warning.</description>
+      </entry>
+      <entry value="2" name="TEXT_STATUS_INFO">
+        <description>Normal operational messages. Useful for logging. No action is required for these messages.</description>
+      </entry>
+    </enum>
+  </enums>
+  <messages>
+    <message id="180" name="WAYPOINT_LIST_COUNT">
+      <description>Send the number of items in the waypoint list. This is used to initiate a waypoint list upload or as a response to an WAYPOINT_LIST_REQUEST message when downloading the waypoint list.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint32_t" name="plan_id">Identifier of the associated inspection plan</field>
+      <field type="uint16_t" name="count">Number of waypoint items in the sequence</field>
+    </message>
+    <message id="181" name="WAYPOINT_LIST_READ">
+      <description>Request waypoint item data for a specific sequence number be sent by the recipient using an WAYPOINT_LIST_ITEM message. Used for waypoint list upload and download.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="seq">Waypoint ID (sequence number). Starts at zero</field>
+    </message>
+    <message id="182" name="WAYPOINT_LIST_ITEM">
+      <description>Message encoding an waypoint item. Used for waypoint list upload and download.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="seq">Waypoint ID (sequence number). Starts at zero. Increases monotonically for each waypoint, no gaps in the sequence (0,1,2,3,4)</field>
+      <field type="uint32_t" name="task_id">Identifier of the associated inspection task</field>
+      <field type="uint16_t" name="command" enum="MAV_CMD">The scheduled action for the waypoint (see MAV_CMD enum)</field>
+      <field type="uint8_t" name="autocontinue">Autocontinue to next waypoint</field>
+      <field type="float" name="param1">PARAM1, see MAV_CMD enum</field>
+      <field type="float" name="param2">PARAM2, see MAV_CMD enum</field>
+      <field type="float" name="param3">PARAM3, see MAV_CMD enum</field>
+      <field type="float" name="param4">PARAM4, see MAV_CMD enum</field>
+      <field type="float" name="x">PARAM5 / x position in meters</field>
+      <field type="float" name="y">PARAM6 / y position in meters</field>
+      <field type="float" name="z">PARAM7 / z position in meters</field>
+    </message>
+    <message id="183" name="WAYPOINT_LIST_ACK">
+      <description>Acknowledgment message when a system completes a waypoint list operation (e.g. sent by robotic vehicle after it has uploaded all waypoint items). The message includes an WAYPOINT_LIST_RESULT indicating either success or the type of failure.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint8_t" name="type" enum="WAYPOINT_LIST_RESULT">Waypoint list operation result (see WAYPOINT_LIST_RESULT enum)</field>
+    </message>
+    <message id="184" name="WAYPOINT_LIST_REQUEST">
+      <description>Initiate the waypoint list download operation from a system.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+    </message>
+    <message id="185" name="WAYPOINT_LIST_SET_CURRENT_ITEM">
+      <description>Set the waypoint item with sequence number seq as current item.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="seq">Waypoint ID (sequence number). Starts at zero</field>
+    </message>
+    <message id="186" name="WAYPOINT_LIST_CURRENT_ITEM">
+      <description>Message that announces the sequence number of the current active waypoint item. The robotic vehicle will move towards this item of the waypoint list.</description>
+      <field type="uint16_t" name="seq">Waypoint ID (sequence number). Starts at zero</field>
+    </message>
+    <message id="187" name="WAYPOINT_LIST_ITEM_REACHED">
+      <description>Message that announces that a certain item of the waypoint list has been reached.</description>
+      <field type="uint16_t" name="seq">Waypoint ID (sequence number). Starts at zero</field>
+    </message>
+
+    <message id="188" name="CHECK_LIST_REQUEST">
+      <description>Initiate the checklist download operation from a system.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+    </message>
+    <message id="189" name="CHECK_LIST_COUNT">
+      <description>Send the number of items in a checklist. This is used as a response to a CHECK_LIST_REQUEST message when downloading the checklist.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="count">Number of check items in the sequence</field>
+    </message>
+    <message id="190" name="CHECK_LIST_READ">
+      <description>Request check item value for a specific sequence number be sent by the recipient using a CHECK_LIST_ITEM message. Used for checklist download.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="index">Check index. Starts at zero</field>
+    </message>
+    <message id="191" name="CHECK_LIST_ITEM">
+      <description>The value of a check item. This is used as a response to CHECK_LIST_READ when downloading the checklist.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="index">Check index. Starts at zero</field>
+      <field type="char[20]" name="name">Check name string</field>
+      <field type="char[231]" name="description">Check description string</field>
+    </message>
+    <message id="193" name="CHECK_LIST_ACK">
+      <description>Acknowledgment message when a system completes the checklist download operation. The message includes a CHECK_LIST_RESULT indicating either success or the type of failure.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint8_t" name="type" enum="CHECK_LIST_RESULT">Checklist operation result (see CHECK_LIST_RESULT enum)</field>
+    </message>
+
+    <message id="194" name="ALARM_LIST_REQUEST">
+      <description>Initiate the alarm list download operation from a system.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+    </message>
+    <message id="195" name="ALARM_LIST_COUNT">
+      <description>Send the number of items in an alarm list. This is used as a response to an ALARM_LIST_REQUEST message when downloading the alarm list.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="count">Number of alarm items in the sequence</field>
+    </message>
+    <message id="196" name="ALARM_LIST_READ">
+      <description>Request alarm item value for a specific sequence number be sent by the recipient using an ALARM_LIST_ITEM message. Used for alarm list download.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="index">Alarm index. Starts at zero</field>
+    </message>
+    <message id="197" name="ALARM_LIST_ITEM">
+      <description>The value of an alarm item. This is used as a response to an ALARM_LIST_READ message when downloading the alarm list.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="index">Alarm index. Starts at zero</field>
+      <field type="char[20]" name="name">Alarm name string</field>
+      <field type="char[231]" name="description">Alarm description string</field>
+    </message>
+    <message id="198" name="ALARM_LIST_ACK">
+      <description>Acknowledgment message when a system completes the alarm list download operation. The message includes an ALARM_LIST_RESULT indicating either success or the type of failure.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint8_t" name="type" enum="ALARM_LIST_RESULT">Alarm list operation result (see ALARM_LIST_RESULT enum)</field>
+    </message>
+
+    <message id="199" name="HL_ACTION_LIST_REQUEST">
+      <description>Initiate the high-level action list download operation from a system.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+    </message>
+    <message id="200" name="HL_ACTION_LIST_COUNT">
+      <description>Send the number of items in a high-level action list. This is used as a response to a HL_ACTION_LIST_REQUEST message when downloading the high-level action list.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="count">Number of high-level action items in the sequence</field>
+    </message>
+    <message id="201" name="HL_ACTION_LIST_READ">
+      <description>Request high-level action item value for a specific sequence number be sent by the recipient using an HL_ACTION_LIST_ITEM message. Used for high-level action list download.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="index">High-level action index. Starts at zero</field>
+    </message>
+    <message id="202" name="HL_ACTION_LIST_ITEM">
+      <description>The value of a high-level action item. This is used as a response to an HL_ACTION_LIST_READ message when downloading the high-level action list.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint16_t" name="index">High-level action index. Starts at zero</field>
+      <field type="uint16_t" name="command" enum="MAV_CMD">Command ID of the command associated with the high-level action (see MAV_CMD enum)</field>
+      <field type="char[20]" name="name">High-level action name string</field>
+      <field type="char[229]" name="description">High-level action description string</field>
+    </message>
+    <message id="203" name="HL_ACTION_LIST_ACK">
+      <description>Acknowledgment message when a system completes the high-level action list download operation. The message includes a HL_ACTION_LIST_RESULT indicating either success or the type of failure.</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="uint8_t" name="type" enum="HL_ACTION_LIST_RESULT">High-level action list operation result (see HL_ACTION_LIST_RESULT enum)</field>
+    </message>
+
+    <message id="204" name="ALARM_STATUS">
+      <description>This message is used to inform the gRCS of the robotic vehicle's alarm status (indicated by its index).</description>
+      <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot)</field>
+      <field type="uint16_t" name="index">Alarm index</field>
+      <field type="uint8_t" name="status" enum="ALARM_STATUS_FLAGS">Alarm status (see ALARM_STATUS_FLAGS enum)</field>
+      <field type="uint16_t" name="errors_count">Alarm errors count since system boot</field>
+      <field type="uint16_t" name="warns_count">Alarm warnings count since system boot</field>
+    </message>
+
+    <message id="205" name="TEXT_STATUS">
+      <description>This message is used to inform to the gRCS of any type of warning or error that occurred in the robotic vehicle. It can even be used to send information messages to the gRCS.</description>
+      <field type="uint8_t" name="severity" enum="TEXT_STATUS_FLAGS">Severity of status (see TEXT_STATUS_FLAGS enum)</field>
+      <field type="char[254]" name="text">Status text message, without null termination character</field>
+    </message>
+  </messages>
+</mavlink>

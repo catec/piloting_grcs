@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowUi</class>
+ <widget class="QMainWindow" name="MainWindowUi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>993</width>
+    <height>584</height>
+   </rect>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../images.qrc">
+    <normaloff>:/images/gcs-icon</normaloff>:/images/gcs-icon</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow::separator {
+	background-color: #323235;
+	width: 3px;
+	height: 3px;
+}
+
+QMainWindow::separator:hover {
+	background: blue;
+}
+
+
+QWidget {
+	background-color: #222224;
+	color: white;
+	font-size: 10pt;
+}
+
+QWidget:focus
+{
+	border: 2px solid #379AC3;
+	/*background-color: rgba(55, 154, 195, 80);*/
+}
+
+
+QLabel:disabled {
+	color: grey;
+}
+
+
+QProgressBar {
+	border: 1px solid #4A4A4F;
+	border-radius: 4px;
+	text-align: center;
+	background-color: #111118;
+}
+
+QProgressBar::chunk {
+	background-color: #3C7B9E;
+}
+
+
+QSpinBox,
+QDoubleSpinBox,
+QDateEdit,
+QTimeEdit {
+	background-color: #1E2929;
+	border: 1px solid white;
+	border-radius: 5px;
+	selection-background-color: #379AC3;
+}
+
+QSpinBox:disabled,
+QDoubleSpinBox:disabled,
+QDateEdi:disabledt,
+QTimeEdit:disabled  {
+    border-color: grey;
+	color: grey;
+}
+
+QDockWidget {
+	border: 2px solid #66666B;
+	border-radius: 1px;
+}
+
+QDockWidget::title {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #3F556A, stop: 1 #293645);    
+	text-align: center;
+	border-bottom: 2px solid #2C3A4A;
+}
+
+QDockWidget::close-button, 
+QDockWidget::float-button {
+	spacing: 1px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	background: transparent;
+	padding: 0px;
+}
+
+QDockWidget::close-button:hover, 
+QDockWidget::float-button:hover {
+	background: rgba(255, 255, 255, 10);
+}
+
+QDockWidget::close-button:pressed, 
+QDockWidget::float-button:pressed {
+	padding: 1px -1px -1px 1px;
+}
+
+
+QMenuBar::item {
+    background-color: transparent;
+}
+
+QMenuBar::item:selected {
+    background-color: #379AC3;
+	border: 1px solid grey;
+    border-bottom-color: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+QMenuBar::item:disabled {
+	color: grey;
+}
+
+
+QMenu {
+	border: 1px solid #379AC3;
+}
+
+QMenu::separator {
+	height: 1px;
+	background: #379AC3;
+	margin-top: 8px;
+	margin-bottom: 4px;
+	margin-left: 5px;
+	margin-right: 5px;
+ }
+
+QMenu::item {
+	padding: 2px 20px 2px 20px;
+}
+
+QMenu::item:disabled {
+	color: grey;
+}
+
+QMenu::item:selected {
+    background-color: #379AC3;
+	border: 1px solid grey;
+}
+
+
+QToolButton {
+	background-color: #2C2C34;
+	border: 1px solid white;
+	border-radius: 2px;
+	margin: 1px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+QToolButton:disabled {
+	border-color: grey;
+}
+
+QToolButton:checked {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #3FC9D7, stop: 1 #414B52);
+	border-color: #379AC3;
+}
+
+QToolButton:checked:disabled {
+	background-color: #898C90;
+	border-color: grey;
+}
+
+QToolButton:pressed {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #bbbbbb, stop: 1 #b0b0b0);
+	border-color: #379AC3;
+}
+
+
+QComboBox {
+	background-color: #1E2929;
+	color: white;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 1px 18px 1px 32px;
+}
+
+QComboBox:disabled {
+	color: grey;
+    border-color: grey;
+}
+
+QComboBox::separator {
+	height: 1px;
+	background: #379AC3;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+QComboBox::item:disabled {
+	color: grey;
+}
+
+QComboBox::item:selected {
+    background-color: #379AC3;
+}
+
+
+QDialog {
+	border: 1px solid white;
+  	border-radius: 2px;
+}
+
+
+QTabWidget::pane {
+	border: 1px solid white;
+}
+
+
+QTabBar {
+	outline: none
+}
+
+QTabBar::tab {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #090909, stop: 1 #353535);
+    border: 1px solid white;
+    border-bottom-color: transparent;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 8ex;
+    padding: 2px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+	background-color: #379AC3;
+}
+
+QTabBar::tab:!selected {
+	margin-top: 2px;
+}
+
+QTabBar::tab:focus
+{
+	border: 1px solid #379AC3;
+}
+
+
+QToolTip {
+    background-color: #3D5368;
+    border: 1px solid #379AC3;
+    border-radius: 2px;
+    color: #DDDDDF;
+}
+
+
+QSlider {
+    background-color: transparent;
+}
+
+QSlider::groove:horizontal {
+     border: 1px solid #999999;
+     height: 4px; 
+     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4A4A4F, stop:1 #4A4A4F);
+     margin: 2px 0;
+ }
+
+ QSlider::groove:disabled:horizontal {
+     border: 1px solid #454545;
+     height: 4px; 
+     background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #4A4A4F, stop:1 #4A4A4F);
+     margin: 2px 0;
+ }
+
+ QSlider::handle:horizontal {
+     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #232228, stop: 1 #020208);
+     border: 2px solid #379AC3;
+     width: 18px;
+     margin: -5px 0; 
+     border-radius: 3px;
+ }
+
+ QSlider::handle:disabled:horizontal {
+     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #535258, stop: 1 #050508);
+     border: 2px solid #444444;
+     width: 18px;
+     margin: -5px 0;
+     border-radius: 3px;
+ }
+
+ QSlider::groove:vertical {
+     border: 1px solid #999999;
+     width: 4px; 
+     background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #4A4A4F, stop:1 #4A4A4F);
+     margin: 2px 0;
+ }
+
+ QSlider::handle:vertical {
+     background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #232228, stop: 1 #020208);
+     border: 2px solid #379AC3;
+     height: 18px;
+     margin: 0 -5px; 
+     border-radius: 3px;
+ }
+
+
+QRadioButton{
+    width: 13px;
+    height: 13px;
+    padding: 3px 3px 3px 3px;
+	outline: none;
+}
+
+QRadioButton:disabled {
+	color: grey;
+	border-color: grey;
+}
+
+QRadioButton::indicator{
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    width: 10px;
+    height: 10px;
+    margin: 2px 2px 2px 2px;
+}
+
+QRadioButton::indicator:disabled{
+    color: grey;
+	border-color: grey;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #379AC3;
+}
+
+QRadioButton::indicator:checked:disabled{
+    color: grey;
+	border-color: grey;
+	background-color: grey;
+}
+
+QPlainTextEdit,
+QTextEdit,
+QLineEdit {
+	background-color: #1E2929;
+	/*border: 1px solid #777777;*/
+	border: 1px solid white;
+	/*border-radius: 2px;*/
+	border-radius: 5px;
+	selection-background-color: #379AC3;
+}
+
+QPlainTextEdit:disabled,
+QTextEdit:disabled,
+QLineEdit:disabled  {
+	border-color: grey;
+	color: grey;
+}
+
+
+QPushButton {
+	border: 1px solid white;
+	border-radius: 2px;
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #59666f, stop: 1 #414B52);
+	outline: none
+}
+
+QPushButton:disabled {
+    color: grey;
+}
+
+QPushButton:checked {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #09A2B2, stop: 1 #414B52);
+}
+
+QPushButton:pressed {
+	background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #bbbbbb, stop: 1 #b0b0b0);
+}
+
+
+QTreeView,
+QListView ,
+QTableWidget{
+	background: #1E2929;
+	alternate-background-color: #223335;
+	show-decoration-selected: 1;
+}
+
+QTreeView::item:!has-children:hover,
+QListView::item:hover {
+    background-color: #379AC3;
+}
+
+QTreeView::item:selected,
+QListView::item:selected {
+    background-color: #379AC3;
+	border: 1px solid grey;
+    border-right-color:transparent;
+	border-left-color:transparent;
+}
+
+QTreeView::branch:!has-children:hover {
+    background-color: #379AC3;
+}
+
+QTreeView::branch:selected {
+    background-color: #379AC3;
+	border: 1px solid grey;
+    border-right-color:transparent;
+	border-left-color:transparent;
+}
+
+QHeaderView::section {
+    background-color: #221113;
+	color: white;
+	border: 1px solid #6c6c6c;
+}
+
+QHeaderView::section:checked
+{
+    background-color: darkgrey;
+}
+
+QHeaderView::section:disabled {
+	color: grey;
+}
+
+QCheckBox {
+    color: #DDDDDF;
+    padding: 3px 3px 3px 3px;
+}
+
+/*
+QCheckBox::indicator{
+    border: 1px solid white;
+    border-radius: 1px;
+    color: #FFFFFF;
+    width: 10px;
+    height: 10px;
+    margin: 2px 2px 2px 2px
+}
+
+QCheckBox::indicator:unchecked:pressed {
+    background-color: #286e08;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #49c70f;
+}
+
+QCheckBox::indicator:checked:pressed {
+    background-color: #AAAAAA;
+}
+*/
+
+QGroupBox {
+    border: 1px solid #66666B;
+    border-radius: 3px;
+    padding: 0px 0px 0px 0px;
+    margin-top: 2ex;
+    margin-bottom: 1ex;
+}
+
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top center;
+     margin: 0 3px 0px 3px;
+     padding: 0 3px 0px 0px;
+     font: bold 8px;
+     color: #DDDDDF;
+ }
+
+
+QGCToolWidgetItem {
+	border: 1px solid #66666B;
+	border-radius: 3px;
+	padding: 10px 0px 0px 0px;
+	margin-top: 1ex;
+ }
+
+
+QSplitter::handle:horizontal {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+		stop:0 rgba(255, 255, 255, 0), 
+		stop:0.407273 rgba(200, 200, 200, 255), 
+		stop:0.4825 rgba(101, 104, 113, 235), 
+		stop:0.6 rgba(255, 255, 255, 0)
+		);
+}
+
+QSplitter::handle:vertical {
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, 
+		stop:0 rgba(255, 255, 255, 0), 
+		stop:0.407273 rgba(200, 200, 200, 255), 
+		stop:0.4825 rgba(101, 104, 113, 235), 
+		stop:0.6 rgba(255, 255, 255, 0)
+		);
+}</string>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="mapW" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>993</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="fileMenu">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>true</bool>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>true</bool>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+    <addaction name="quitAct"/>
+   </widget>
+   <widget class="QMenu" name="menuRoute">
+    <property name="title">
+     <string>Waypoint List</string>
+    </property>
+    <addaction name="saveCurrWptsListAct"/>
+    <addaction name="saveAsCurrWptsListAct"/>
+    <addaction name="loadAssocWptsListAct"/>
+    <addaction name="separator"/>
+    <addaction name="enableAutoHeadingAct"/>
+   </widget>
+   <addaction name="fileMenu"/>
+   <addaction name="menuRoute"/>
+  </widget>
+  <widget class="QToolBar" name="editBar">
+   <property name="windowTitle">
+    <string>Edit Actions</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="editModeAct"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QToolBar" name="viewModeBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="mapTwoDViewAct"/>
+   <addaction name="mapThreeDViewAct"/>
+  </widget>
+  <widget class="QToolBar" name="editionBar">
+   <property name="windowTitle">
+    <string>Waypoints Actions</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="creatingRouteAct"/>
+   <addaction name="editingRouteAct"/>
+   <addaction name="editingLoadedHomeAct"/>
+   <addaction name="measuringDistancesAct"/>
+  </widget>
+  <widget class="QToolBar" name="visualBar">
+   <property name="windowTitle">
+    <string>Visual Actions</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="showLocalRoutesAct"/>
+   <addaction name="showLoadedRoutesAct"/>
+  </widget>
+  <widget class="QToolBar" name="DDHLBar">
+   <property name="windowTitle">
+    <string>DDHL Comms Actions</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="configDDHLAct"/>
+   <addaction name="downloadDDHLAct"/>
+   <addaction name="uploadDDHLAct"/>
+   <addaction name="loadInspectionPlanAct"/>
+  </widget>
+  <widget class="QToolBar" name="connectionBar">
+   <property name="windowTitle">
+    <string>Connection Actions</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::TopToolBarArea</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="commsOptionsAct"/>
+   <addaction name="connectAct"/>
+   <addaction name="disconnectAct"/>
+  </widget>
+  <widget class="QToolBar" name="checkBar">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="checklistAct"/>
+  </widget>
+  <widget class="QToolBar" name="cutCloudBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="cutCloudAct"/>
+  </widget>
+  <widget class="QToolBar" name="configVizBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="configVisualizationAct"/>
+  </widget>
+  <action name="quitAct">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit from application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="editModeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/pencil</normaloff>
+     <normalon>:/images/lock</normalon>:/images/pencil</iconset>
+   </property>
+   <property name="text">
+    <string>Edit</string>
+   </property>
+   <property name="toolTip">
+    <string>Enable/Disable edition mode</string>
+   </property>
+  </action>
+  <action name="creatingRouteAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/add-route</normaloff>:/images/add-route</iconset>
+   </property>
+   <property name="text">
+    <string>Create Route</string>
+   </property>
+   <property name="toolTip">
+    <string>Create a new route</string>
+   </property>
+  </action>
+  <action name="editingRouteAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/edit-route</normaloff>:/images/edit-route</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Route</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit the current route</string>
+   </property>
+  </action>
+  <action name="editingLoadedHomeAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/home-edit</normaloff>:/images/home-edit</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Loaded Home</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit the loaded home</string>
+   </property>
+  </action>
+  <action name="measuringDistancesAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/measure</normaloff>:/images/measure</iconset>
+   </property>
+   <property name="text">
+    <string>Measure distance</string>
+   </property>
+   <property name="toolTip">
+    <string>Measure the distance between two points</string>
+   </property>
+  </action>
+  <action name="configDDHLAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/ddhl-config</normaloff>:/images/ddhl-config</iconset>
+   </property>
+   <property name="text">
+    <string>Configure DDHL</string>
+   </property>
+   <property name="toolTip">
+    <string>Configure DDHL Communications</string>
+   </property>
+  </action>
+  <action name="connectAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/connect</normaloff>:/images/connect</iconset>
+   </property>
+   <property name="text">
+    <string>Connect</string>
+   </property>
+   <property name="toolTip">
+    <string>Connect to selected device</string>
+   </property>
+  </action>
+  <action name="disconnectAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/disconnect</normaloff>:/images/disconnect</iconset>
+   </property>
+   <property name="text">
+    <string>Disconnect</string>
+   </property>
+   <property name="toolTip">
+    <string>Disconnect from selected device</string>
+   </property>
+  </action>
+  <action name="showLocalRoutesAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/local-route-white</normaloff>:/images/local-route-white</iconset>
+   </property>
+   <property name="text">
+    <string>Show Local Routes</string>
+   </property>
+   <property name="toolTip">
+    <string>Show local routes</string>
+   </property>
+  </action>
+  <action name="showLoadedRoutesAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/loaded-route-white</normaloff>:/images/loaded-route-white</iconset>
+   </property>
+   <property name="text">
+    <string>Show Loaded Routes</string>
+   </property>
+   <property name="toolTip">
+    <string>Show loaded routes</string>
+   </property>
+  </action>
+  <action name="commsOptionsAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/config</normaloff>:/images/config</iconset>
+   </property>
+   <property name="text">
+    <string>Comms Options...</string>
+   </property>
+   <property name="toolTip">
+    <string>Show communications options</string>
+   </property>
+  </action>
+  <action name="mapTwoDViewAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/2d-view</normaloff>:/images/2d-view</iconset>
+   </property>
+   <property name="text">
+    <string>2D View</string>
+   </property>
+   <property name="toolTip">
+    <string>Change Camera to 2D View</string>
+   </property>
+  </action>
+  <action name="mapThreeDViewAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/3d-view</normaloff>:/images/3d-view</iconset>
+   </property>
+   <property name="text">
+    <string>3D View</string>
+   </property>
+   <property name="toolTip">
+    <string>Change camera to 3D View</string>
+   </property>
+  </action>
+  <action name="downloadDDHLAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/download-icon</normaloff>:/images/download-icon</iconset>
+   </property>
+   <property name="text">
+    <string>Download data from DDHL</string>
+   </property>
+   <property name="toolTip">
+    <string>Download data from DDHL</string>
+   </property>
+  </action>
+  <action name="checklistAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/checklist</normaloff>:/images/checklist</iconset>
+   </property>
+   <property name="text">
+    <string>Check List  </string>
+   </property>
+   <property name="toolTip">
+    <string>Check List </string>
+   </property>
+  </action>
+  <action name="uploadDDHLAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/upload-icon</normaloff>:/images/upload-icon</iconset>
+   </property>
+   <property name="text">
+    <string>Upload data to DDHL</string>
+   </property>
+   <property name="toolTip">
+    <string>Upload data to DDHL</string>
+   </property>
+  </action>
+  <action name="loadInspectionPlanAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/server-upload</normaloff>:/images/server-upload</iconset>
+   </property>
+   <property name="text">
+    <string>Load Inspection Plan</string>
+   </property>
+   <property name="toolTip">
+    <string>Load Inspection Plan</string>
+   </property>
+  </action>
+  <action name="cutCloudAct">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/cloud-cut</normaloff>:/images/cloud-cut</iconset>
+   </property>
+   <property name="text">
+    <string>Cut PointCloud</string>
+   </property>
+   <property name="toolTip">
+    <string>Cut PointCloud</string>
+   </property>
+  </action>
+  <action name="configVisualizationAct">
+   <property name="icon">
+    <iconset resource="../images.qrc">
+     <normaloff>:/images/config-visualiz</normaloff>:/images/config-visualiz</iconset>
+   </property>
+   <property name="text">
+    <string>configVisualizationAct</string>
+   </property>
+   <property name="toolTip">
+    <string>Configure Visualization Parameters</string>
+   </property>
+  </action>
+  <action name="saveCurrWptsListAct">
+   <property name="text">
+    <string>Save Current Wpts List</string>
+   </property>
+  </action>
+  <action name="loadAssocWptsListAct">
+   <property name="text">
+    <string>Load Associated Wpts List</string>
+   </property>
+  </action>
+  <action name="saveAsCurrWptsListAct">
+   <property name="text">
+    <string>Save Current Wpts List As ...</string>
+   </property>
+  </action>
+  <action name="enableAutoHeadingAct">
+   <property name="text">
+    <string>Manage Auto Heading</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

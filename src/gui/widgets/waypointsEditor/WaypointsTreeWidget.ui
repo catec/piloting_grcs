@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>WaypointsTreeWidget</class>
+ <widget class="QTreeWidget" name="WaypointsTreeWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>859</width>
+    <height>361</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>450</width>
+    <height>130</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="horizontalScrollBarPolicy">
+   <enum>Qt::ScrollBarAsNeeded</enum>
+  </property>
+  <property name="sizeAdjustPolicy">
+   <enum>QAbstractScrollArea::AdjustToContents</enum>
+  </property>
+  <property name="textElideMode">
+   <enum>Qt::ElideMiddle</enum>
+  </property>
+  <property name="columnCount">
+   <number>16</number>
+  </property>
+  <attribute name="headerCascadingSectionResizes">
+   <bool>true</bool>
+  </attribute>
+  <attribute name="headerDefaultSectionSize">
+   <number>85</number>
+  </attribute>
+  <attribute name="headerMinimumSectionSize">
+   <number>30</number>
+  </attribute>
+  <column>
+   <property name="text">
+    <string>Route Id</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>AutoCont</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>SeqN</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Index</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Task UUID</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>PosX (m)</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>PosY (m)</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>PosZ (m)</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Roll (º)</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Pitch (º)</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Yaw (º)</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Param1</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Param2</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Param3</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Param4</string>
+   </property>
+  </column>
+  <column>
+   <property name="text">
+    <string>Type</string>
+   </property>
+  </column>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

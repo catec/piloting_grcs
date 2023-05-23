@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=@ICON_NAME@
+Exec=@CMAKE_INSTALL_PREFIX@/bin/@APP_NAME@
+Terminal=false
+Type=Application
+Icon=@CMAKE_INSTALL_PREFIX@/share/@PROJECT_NAME@/gcs_icon.png
+StartupNotify=true
+Categories=Other;

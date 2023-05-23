@@ -1,0 +1,20 @@
+#!/bin/bash
+
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+RESET=`tput sgr0`
+
+for USER_HOME in /home/*
+do
+   DESKTOP="$USER_HOME/Desktop"
+   DESCKTOP_SHORTCUT="$DESKTOP/@APP_NAME@.desktop"
+
+   if [ -f $DESCKTOP_SHORTCUT ]; then
+
+      echo -e "${GREEN}\nRemoving @PROJECT_NAME@ shortcut from $DESKTOP...${RESET}"
+
+      sudo rm $DESCKTOP_SHORTCUT
+
+      echo -e "${GREEN}Successfully removed @PROJECT_NAME@ shortcut from $DESKTOP.${RESET}"
+   fi
+done

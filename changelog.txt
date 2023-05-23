@@ -1,0 +1,101 @@
+----------------------------------------------
+-- Changelog for version 1.0.3 (2023-05-21) --
+----------------------------------------------
+These changes are due to bugs reported by partners and some additional improvements.
+
+* When saving the route to a text file, the ACTION type waypoint parameters are also saved.
+
+* Implemented new functionality to download InspectionPlan based on the site. This avoids having to manually copy the InspectionPlan 
+  UUID from the portal.
+
+* Saving floating values as a string of 6 decimal places to avoid rounding errors when saving or loading paths from a text file.
+
+* An inspection plan will only be uploaded to the gRCS when the associated asset has been successfully downloaded.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------
+-- Changelog for version 1.0.2 (2023-01-13) --
+----------------------------------------------
+These changes are due to bugs reported after demonstrator pilots and minor improvements proposed by partners.
+
+WAYPOINT EDITION
+* [WTR] Now is possible to delete ACTION waypoints by right-clicking on them and using the drop-down menu. When an ACTION type waypoint 
+  is deleted, the waypoints that were associated to its UUID will be reassociated to the immediately previous inspection task UUID.
+* [WTR] Now you can also delete the POSE waypoint type placed on the Inspection Location with right click and the drop-down menu and you 
+  will only be able to place a single POSE waypoint type.
+* [ETH] It is no longer possible to modify the XYZ position of the ACTION waypoints from the Waypoint Editor Widget.
+
+
+VISUALIZATION
+* [WTR] Be able to modify the size of the waypoints label and hide the global frame axis in the 3D viewer. In addition, the option to 
+  hide the UUIDs or texts of all items has also been added.
+* [WTR] You can hide the shape of the home position (disk with arrow) through the Visualization Configuration Options. Whenever you are 
+  in "home edition" mode it will be in visible mode.
+* [WTR] You can now modify the transparency of Inspection Locations.
+* [WTR] When the PCD of the point cloud is generated from the STL, now the point density is generated dynamically depending on the size 
+  of the surface model. The number of points used is equal to the number of bytes in the asset.
+* If a specific alarm is not received for 5 seconds, the alarm will be grayed out. In this way we make sure that we are receiving 
+  alarms updates.
+
+
+DDHL UPLOAD
+* [USE] "When uploading post-mission data, sometimes the same data is uploaded twice in a row. This generates an error that the "sync_id" 
+  already exists in the portal but the data has been uploaded correctly."
+    - We are not able to reproduce this bug.
+
+
+GENERAL BUGS
+* [ETH] Allowed negative values in the parameters of the High Level Actions. Now the range is between [-999.0, 999.0]
+* [WTR] HLAction piloting-mavsdk timeout.
+    - Not been able to fix this bug yet.
+* [USE] "To be able to have a single asset associated with several Inspection Plans in order to load them later. It is convenient to check 
+  the distribution of local folders where this information is stored".
+    - We are not able to reproduce this bug.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------
+-- Changelog for version 1.0.1 (2022-06-03) --
+----------------------------------------------
+
+DISCLAIMER: It is necessary to update both piloting-mavsdk (5.0.1) and piloting-masdk-ros to the new latest versions.
+
+WAYPOINT EDITION
+* The Waypoint Heading Dialog has been modified to be able to set decimals in the orientation.
+* Fixed autoheading default value bug. Sometimes defaults to start as enable.
+* It will no longer be possible to change the waypoint type from the Waypoint Editor Widget.
+* Now, in the Inspection Locations, right-clicking will select whether you want to add a POSE or ACTION waypoint type on that area. 
+  This will be the only way to place waypoints type ACTION.
+* When placing the first waypoint, in addition to the UUID, the name of the associated Inspection Task will be displayed.
+
+
+VISUALIZATION
+* The Waypoint Editor Widget has been modified. Now the parameters associated to the waypoint will be displayed according to its 
+  type (POSE or ACTION). In addition, from this widget it will no longer be possible to change the waypoint type.
+* The following functionalities have been added in the Visualization Config Options:
+	- Hide the point cloud.
+	- Modify the colour of the point cloud.
+	- Hide the text of displayed items.
+* Axes at ACTION waypoints have been removed, as they have no orientation.
+
+
+DDHL DOWNLOAD
+* STL to PCD conversion has been implemented.
+* A dialog has been created to select the target asset file from the files list associated with Inspection Plan. The supported formats 
+  of the 3D model are: PCD, PLY and STL.
+* The possibility to connect to DDHL via a url has been added.
+
+
+GENERAL 2º INTEGRATION WEEK BUGS
+* When downloading the robot waypoint list the orientation was not parsed. This has been fixed.
+* Version information has been added to the gRCS.
+* The local computer clock is shared with the Docker container to correctly generate the post-mission data.
+* Information associated with MAVSDK commands has been added to the Docker container.  This will allow you to know the meaning of 
+  each parameter in the high-level action commands.
+* It is no longer necessary to place a HOME to send the route to the robotic system.
+* Fixed piloting-mavsdk-ros sendCommand time-out bug when using commands.
+* The associated task_type_uuid field has now been added to the waypoints items. This will allow to know the type of action to be carried 
+  out in the wp type ACTION.

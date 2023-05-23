@@ -1,0 +1,13 @@
+<library path="libgcs">
+   <class name="gcs/TopCamera" type="gcs::FixedOrientationViewController" base_class_type="rviz::ViewController">
+      <description>
+         Orthographic projection, seen from the top used in the GCS.
+      </description>
+   </class>
+
+   <class name="gcs/Orbit" type="gcs::GcsOrbitViewController" base_class_type="rviz::ViewController">
+      <description>
+         Orbit view reimplemented with minimal functionalitues.
+      </description>
+   </class>
+</library>

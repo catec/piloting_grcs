@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CloudEditorDialog</class>
+ <widget class="QDialog" name="CloudEditorDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>410</width>
+    <height>346</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cloud Plane Cut Editor</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QWidget" name="infoWidget" native="true">
+     <layout class="QVBoxLayout" name="infoLayout">
+      <item>
+       <layout class="QHBoxLayout" name="pointsLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="minimumSize">
+           <size>
+            <width>110</width>
+            <height>27</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>110</width>
+            <height>27</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Points number:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="numPtsL">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>27</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>27</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="dimensionsLayout">
+        <item>
+         <layout class="QVBoxLayout" name="xLayout">
+          <item>
+           <layout class="QHBoxLayout" name="xMinLayout">
+            <item>
+             <widget class="QLabel" name="xminL">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Xmin:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="xminLE">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="xMaxLayout">
+            <item>
+             <widget class="QLabel" name="xmaxL">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Xmax:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="xmaxLE">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="yLayout">
+          <item>
+           <layout class="QHBoxLayout" name="yMinLayout">
+            <item>
+             <widget class="QLabel" name="yminL">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Ymin:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="yminLE">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="yMaxLayout">
+            <item>
+             <widget class="QLabel" name="ymaxL">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Ymax:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="ymaxLE">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="zLayout">
+          <item>
+           <layout class="QHBoxLayout" name="zMinLayout">
+            <item>
+             <widget class="QLabel" name="zminL">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Zmin:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="zminLE">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="zMaxLayout">
+            <item>
+             <widget class="QLabel" name="zmaxL">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Zmax:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="zmaxLE">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>27</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="planeCutLabel">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>27</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>27</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Axis</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="axisFrame">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QRadioButton" name="xAxisRB">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="yAxisRB">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Y</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="zAxisRB">
+            <property name="minimumSize">
+             <size>
+              <width>30</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Z</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="planeCutLabel_2">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>27</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>27</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Direction</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="directionFrame">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QRadioButton" name="upDirRB">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Positive</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="downDirRB">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Negative</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QSlider" name="cutValueSlider">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDoubleSpinBox" name="currentValSB">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>27</height>
+        </size>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="Line" name="line_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="restoreCloudB">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Restore Cloud</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="hideCloudB">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Hide Cloud</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../../images.qrc"/>
+ </resources>
+ <connections/>
+</ui>

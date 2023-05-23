@@ -1,0 +1,2 @@
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #109C00, stop: 1 #0B6E00);
+color:#fff;

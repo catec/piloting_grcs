@@ -1,0 +1,117 @@
+#pragma once
+
+#include <QMetaType>
+#include <QSharedPointer>
+
+namespace gcs {
+
+enum class DTOType : uint8_t {
+    UNKNOW = 0,
+
+    MISSION_STATUS,
+    MISSION,
+    CURRENT_MISSION_RESULT,
+    MISSION_RESULT,
+    MISSION_RESULTS,
+    BASIC_MISSION,
+    POSITION_2D,
+    POSITION_3D,
+    QUATERNION,
+    POSE,
+    WAYPOINT,
+    ROUTE,
+
+    HOME,
+
+    BASIC_WAYPOINT,
+    POSITION_WAYPOINT,
+    BASIC_ROUTE,
+    ACTION_PARAMETERS,
+
+    MAP_3D,
+    VISUALIZATION_CONFIG,
+    ASSET,
+    FILE,
+    DOWNLOADED_FILE_LIST,
+    LOADED_FILE,
+    ASSET_PROGRESS,
+    CLOUD_DIMENSIONS,
+    CLOUD_EDITION_PARAMS,
+
+    GUI,
+    DIALOG,
+
+    APPLICATION_STATUS,
+    EDITION_MODE,
+    VIEW_MODE,
+    ROUTE_OPTIONS,
+
+    BASIC_BOOL,
+    BASIC_INT,
+    BASIC_FLOAT,
+    BASIC_STRING,
+    BASIC_STRING_LIST,
+
+    CURRENT_WAYPOINT,
+    HOME_PARAMETERS,
+    BATTERY_PARAMETERS,
+
+    SITE_TYPE,
+    SITE,
+    SITE_LIST,
+
+    ROBOT_DATA_BASE,
+    ROBOT_ATTITUDE_ANGVEL,
+    ROBOT_POSITION_VELOCITY_NED,
+
+    CURSOR_POSITION,
+    MEASURE,
+    MSG_CONSOLE,
+    MSG_CONSOLE_POPUP,
+
+    COMMS_LINK,
+    MAVSDK_COMMS_LINK,
+    DDHL_COMMS_LINK,
+
+    COMMS_STATUS,
+    COMMS_PROGRESS,
+
+    // MAVSDK STUFF
+    BASIC_INSPECTION_PLAN,
+    INSPECTION_PLAN,
+    INSPECTION_TASK,
+    INSPECTION_TYPE,
+    CURRENT_INSP_ITEM,
+    REACHED_INSP_ITEM,
+
+    HLACTION_LIST,
+    HLACTION_ITEM,
+    MISSION_TASK,
+    ALARM_LIST,
+    ALARM_ITEM,
+    ALARM_STATUS,
+    CHECKLIST,
+    CHECKLIST_ITEM,
+    COMMAND_BASIC,
+    COMMAND_LONG,
+    SUPPORTED_COMMAND_LIST,
+    PARAM
+};
+
+class IDTO
+{
+  public:
+    virtual ~IDTO() {}
+
+    virtual DTOType getDTOType() = 0;
+};
+
+template <class T>
+inline QSharedPointer<T> createSharedDTO() Q_DECL_NOEXCEPT
+{
+    return QSharedPointer<T>(new T);
+}
+
+} // namespace gcs
+
+Q_DECLARE_METATYPE(QSharedPointer<gcs::IDTO>)

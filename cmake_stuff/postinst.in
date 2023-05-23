@@ -1,0 +1,22 @@
+#!/bin/bash
+
+RED=`tput setaf 1`
+GREEN=`tput setaf 2`
+RESET=`tput sgr0`
+
+for USER_HOME in /home/*
+do
+   USER_NAME=$(basename $USER_HOME)
+   DESKTOP="$USER_HOME/Desktop"
+
+   if [ -d $DESKTOP ]; then
+
+      echo -e "${GREEN}\nCreating @PROJECT_NAME@ shortcuts in $DESKTOP...${RESET}"
+
+      sudo cp -p @CMAKE_INSTALL_PREFIX@/share/applications/@APP_NAME@.desktop $DESKTOP/.
+      sudo chown $USER_NAME:$USER_NAME $DESKTOP/@APP_NAME@.desktop
+      sudo chmod 755 $DESKTOP/@APP_NAME@.desktop
+
+      echo -e "${GREEN}Successfully created @PROJECT_NAME@ shortcuts in $DESKTOP.${RESET}"
+   fi
+done

@@ -1,0 +1,50 @@
+# =========================================================================
+#  @PROJECT_NAME@ CMake configuration file
+#
+#  ** File generated automatically, do not modify **
+#
+#  Usage from an external project:
+#  In your CMakeLists.txt, add these lines:
+#
+#     FIND_PACKAGE(@PROJECT_NAME@ REQUIRED)
+#     TARGET_LINK_LIBRARIES(MY_TARGET_NAME ${@PROJECT_NAME@_LIBS})
+#
+#  Where @PROJECT_NAME@ is the name of a specific library
+#
+#  This file will define the following variables:
+#     - @PROJECT_NAME@_FOUND         : If library has been found.
+#     - @PROJECT_NAME@_LIBS          : The list of libraries to links against.
+#     - @PROJECT_NAME@_LIB_DIR       : The directory where lib files are.
+#     - @PROJECT_NAME@_FIND_NAME     : The name of this library.
+#     - @PROJECT_NAME@_VERSION       : The version of this gu build. Example: "1.2.3"
+#     - @PROJECT_NAME@_VERSION_MAJOR : Major version part of gu_VERSION. Example: "1"
+#     - @PROJECT_NAME@_VERSION_MINOR : Minor version part of gu_VERSION. Example: "2"
+#     - @PROJECT_NAME@_VERSION_PATCH : Patch version part of gu_VERSION. Example: "3"
+#
+# =========================================================================
+
+INCLUDE_DIRECTORIES(@CMAKE_INCLUDE_DIRS_CONFIGCMAKE@)
+INCLUDE_DIRECTORIES(@CMAKE_INCLUDE_DIRS_CONFIGCMAKE@/@PROJECT_NAME@)
+
+LINK_DIRECTORIES("@CMAKE_LIB_DIRS_CONFIGCMAKE@")
+
+SET(@PROJECT_NAME@_LIB_DIR    "@CMAKE_LIB_DIRS_CONFIGCMAKE@")
+SET(@PROJECT_NAME@_COMPONENTS @LIB_COMPONENTS@)
+SET(@PROJECT_NAME@_FOUND      "YES")
+
+SET(@PROJECT_NAME@_LIBS "")
+FOREACH(COMPONENT IN LISTS @PROJECT_NAME@_COMPONENTS)
+   SET(@PROJECT_NAME@_${COMPONENT}_LIBS   @PROJECT_NAME@_${COMPONENT})
+   SET(@PROJECT_NAME@_LIBS                ${@PROJECT_NAME@_LIBS} @PROJECT_NAME@_${COMPONENT})
+ENDFOREACH(COMPONENT)
+
+SET(@PROJECT_NAME@_FIND_NAME     @PROJECT_NAME@)
+SET(@PROJECT_NAME@_VERSION       @VERSION@)
+SET(@PROJECT_NAME@_VERSION_MAJOR @VERSION_MAJOR@)
+SET(@PROJECT_NAME@_VERSION_MINOR @VERSION_MINOR@)
+SET(@PROJECT_NAME@_VERSION_PATCH @VERSION_PATCH@)
+
+INCLUDE(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(@PROJECT_NAME@
+   REQUIRED_VARS  @PROJECT_NAME@_LIBS
+   VERSION_VAR    @PROJECT_NAME@_VERSION)
