@@ -26,6 +26,27 @@ Clone [QsLog](https://github.com/fada-catec/qslog) on your third-party dependenc
 
 Follow up your ROS distro installation guide: [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) or [Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
+### (Optional) Clang-Format 16
+
+```
+sudo add-apt-repository 'deb http://apt.llvm.org/focal/ llvm-toolchain-focal main'
+sudo apt update
+sudo apt install clang-format-16
+```
+
+* **Troubleshooting installing clang-format**
+
+If you end up with a missing key error like this one:
+```bash
+Err:1 https://apt.llvm.org/focal llvm-toolchain-focal InRelease 
+The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 15CF4D18AF4F7421 
+```
+
+You can solve it by adding that necessary key:
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 15CF4D18AF4F7421 
+sudo apt update
+```
 
 ### PILOTING MAVSDK
 On your third-party dependencies folder:

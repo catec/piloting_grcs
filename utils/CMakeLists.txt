@@ -19,7 +19,7 @@ IF(${BUILD_UTILS})
       ${PROJECT_NAME}_gui
       ${PROJECT_NAME}_maps)
 
-   SET(ICON_NAME   "PILOTING GRCS")
+   SET(ICON_NAME   "PILOTING gRCS")
 
    CONFIGURE_FILE("${PROJECT_SOURCE_DIR}/cmake_stuff/app.desktop.in"
       "${PROJECT_BINARY_DIR}/${APP_NAME}.desktop" @ONLY)

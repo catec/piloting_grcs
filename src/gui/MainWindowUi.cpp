@@ -658,7 +658,7 @@ void MainWindowUi::loadMissionResultsFromFolder()
 void MainWindowUi::loadXMLDataFromFolder()
 {
     const auto default_path = QString::fromStdString(PROJECT_SOURCE_PATH + std::string("data/xml"));
-    const auto ros_path     = QString::fromStdString("/opt/ros/melodic/share/piloting_grcs/xml");
+    const auto ros_path     = QString::fromStdString("/opt/ros/melodic/share/piloting_grcs/data/xml");
 
     QString xml_path = QString();
     if (QDir(default_path).exists()) {
