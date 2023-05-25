@@ -18,3 +18,7 @@ ADD_SUBDIRECTORY(utils)
 INCLUDE(cmake_stuff/buildFiles.cmake         REQUIRED)
 INCLUDE(cmake_stuff/packageGenerator.cmake   REQUIRED)
 INCLUDE(cmake_stuff/printInfo.cmake          REQUIRED)
+
+INSTALL(FILES plugin_description.xml
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+  )
