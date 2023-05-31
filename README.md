@@ -2,6 +2,9 @@
 
 This repository contains the gRCS (General Robot Control Station) developments of the PILOTING H2020 project.
 
+In the following video you can see the complete integration with the PILOTING ecosystem. 
+In particular, a real use case of visual inspection on a viaduct is shown: [PILOTING I&M Platform – Workflow](https://www.youtube.com/watch?v=_UPj5b1k2JA).
+
 <img src="./doc/overview_grcs.png" alt="gRCS" height="70%" width="70%">
 
 ## Dependencies installation
@@ -132,8 +135,7 @@ Follow the README file located inside the [docker folder](./docker/).
 Supported by PILOTING - PILOTs for robotic INspection and maintenance Grounded on advanced intelligent platforms and prototype applications.
 More information: <a href="https://piloting-project.eu/">piloting-project.eu</a>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/200px-Flag_of_Europe.svg.png" 
-     alt="eu_flag" height="45" align="left" >  
+<img src="./doc/eu_flag.png" alt="eu_flag" height="45" align="left" >  
 
 This project has received funding from the European Union's Horizon 2020  
 research and innovation programme under grant agreement 871542.
