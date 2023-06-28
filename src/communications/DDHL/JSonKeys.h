@@ -19,8 +19,8 @@ class JSonKeys : public QObject
     void checkIfValidInspPlan(const QJsonObject&);
     void checkIfValidInspTask(const QJsonObject&);
     void checkIfValidInspTaskLocation(const QJsonObject&);
-    void checkIfValidInspTaskAreaDimensions(const QJsonObject&);
-    void checkIfValidInspTaskPointDimensions(const QJsonObject&);
+    void checkIfValidInspTaskAreaParams(const QJsonObject&);
+    void checkIfValidInspTaskPointParams(const QJsonObject&);
     void checkIfValidInspTaskType(const QJsonObject&);
     void checkIfValidAsset(const QJsonObject&);
     void checkIfValidSite(const QJsonObject&);
