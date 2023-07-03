@@ -227,17 +227,24 @@ int QMouseTool::processKeyEvent(QKeyEvent* event, rviz::RenderPanel* panel)
         return Render;
     }
 
-    if (_mapDTO.getVisibleWaypointsList().isEmpty()) {
+    /// \note. Get selected waypoint
+    const auto it = std::find_if(
+            _mapDTO.getVisibleWaypointsList().cbegin(),
+            _mapDTO.getVisibleWaypointsList().cend(),
+            [&](const QSharedPointer<Waypoint3dItem> wp) { return wp->isSelectedWaypoint(); });
+    if (it == _mapDTO.getVisibleWaypointsList().cend()) {
+        QLOG_WARN() << __PRETTY_FUNCTION__ << " - "
+                    << "Unable to move waypoint. No waypoint selected";
         return Render;
     }
 
-    float         targetAngle;
-    const auto    waypoint_id = _mapDTO.getVisibleWaypointsList().back()->id();
-    auto          waypoint_pt = _mapDTO.getVisibleWaypointsList().back()->waypoint().getPosition();
+    const auto    waypoint_id = (*it)->id();
+    const auto    waypoint_pt = (*it)->waypoint().getPosition();
     Ogre::Vector3 updated_waypoint(waypoint_pt.getX(), waypoint_pt.getY(), waypoint_pt.getZ());
 
     /// \note. To be able to move waypoint using arrow keys, must be pressed Control
-    int visible = false;
+    float targetAngle;
+    int   visible = false;
     if (event->type() == QKeyEvent::KeyPress && event->modifiers() & Qt::ControlModifier) {
         visible                       = true;
         const float movementIncrement = 0.1f;
