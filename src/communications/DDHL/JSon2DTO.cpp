@@ -176,34 +176,20 @@ QList<InspectionTaskDTO> JSon2DTO::convertInspectionTaskJsonArrayToList(const QJ
             inspTaskDTO.getLocationType() = InspectionTaskLocationType::POINT;
         } else if (QString::compare(readedType, "InspectionArea", Qt::CaseInsensitive) == 0) {
             inspTaskDTO.getLocationType() = InspectionTaskLocationType::AREA;
-            _jsonKeys.checkIfValidInspTaskAreaDimensions(inspTaskDimensionsJO);
+            _jsonKeys.checkIfValidInspTaskAreaParams(inspTaskDimensionsJO);
             inspTaskDTO.getWidth()  = inspTaskDimensionsJO["width"].toDouble();
             inspTaskDTO.getDepth()  = inspTaskDimensionsJO["depth"].toDouble();
             inspTaskDTO.getHeight() = inspTaskDimensionsJO["height"].toDouble();
 
-            const QJsonObject reprJO = inspTaskDimensionsJO["repr"].toObject();
-            _jsonKeys.checkKeyExist(reprJO, "matrix");
-
-            const QJsonArray matrixJA = reprJO["matrix"].toArray();
-            if (matrixJA.size() != 16) {
-                throw std::runtime_error("Invalid repr matrix size");
-            }
-
-            /// \note. Column-major order arrived matrix
-            Eigen::Matrix3f m(3, 3);
-            m << matrixJA[0].toDouble(), matrixJA[4].toDouble(), matrixJA[8].toDouble(), matrixJA[1].toDouble(),
-                    matrixJA[5].toDouble(), matrixJA[9].toDouble(), matrixJA[2].toDouble(), matrixJA[6].toDouble(),
-                    matrixJA[10].toDouble();
-            Eigen::Quaternionf q(m);
-            inspTaskDTO.getOrientation().getX() = q.x();
-            inspTaskDTO.getOrientation().getY() = q.y();
-            inspTaskDTO.getOrientation().getZ() = q.z();
-            inspTaskDTO.getOrientation().getW() = q.w();
+            inspTaskDTO.getOrientation().getW() = inspTaskDimensionsJO["quatW"].toDouble();
+            inspTaskDTO.getOrientation().getX() = inspTaskDimensionsJO["quatX"].toDouble();
+            inspTaskDTO.getOrientation().getY() = inspTaskDimensionsJO["quatY"].toDouble();
+            inspTaskDTO.getOrientation().getZ() = inspTaskDimensionsJO["quatZ"].toDouble();
         } else {
             throw std::runtime_error("Invalid inspection task type readed from DDHL");
         }
 
-        _jsonKeys.checkIfValidInspTaskPointDimensions(inspTaskDimensionsJO);
+        _jsonKeys.checkIfValidInspTaskPointParams(inspTaskDimensionsJO);
         inspTaskDTO.getPosition().getX() = inspTaskDimensionsJO["posX"].toDouble();
         inspTaskDTO.getPosition().getY() = inspTaskDimensionsJO["posY"].toDouble();
         inspTaskDTO.getPosition().getZ() = inspTaskDimensionsJO["posZ"].toDouble();

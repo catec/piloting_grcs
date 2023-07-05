@@ -92,11 +92,11 @@ MainWindowUi::MainWindowUi(QWidget* parent) :
     /// \note LeftDockWidgetArea
     setTelemetryTreeDock(Qt::LeftDockWidgetArea);
     setInspectionPlanDock(Qt::LeftDockWidgetArea);
+    setMissionDock(Qt::LeftDockWidgetArea);
 
     /// \note RightDockWidgetArea
     setRobotAlarmsDock(Qt::RightDockWidgetArea);
     setRobotControlDock(Qt::RightDockWidgetArea);
-    setMissionDock(Qt::RightDockWidgetArea);
     setHighLevelActionsDock(Qt::RightDockWidgetArea);
 
     /// \note BottomDockWidgetArea
@@ -427,6 +427,8 @@ void MainWindowUi::manageCoreDTO(QSharedPointer<IDTO> idto)
 
                 _inspectionPlanWidget.setInspectionPlan(dto);
                 _waypointEditorWidget.updateInspectionTaskList(dto->getInspectionTaskList());
+
+                updateMissionButtons();
             }
             break;
         }
@@ -1163,7 +1165,6 @@ void MainWindowUi::updateMissionButtons()
     const auto hasRoutes   = _guiDTO.getHasRoutes();
     const auto isConnected = _guiDTO.getCommsIsConnected();
     const auto isEditMode  = _ui->editModeAct->isChecked();
-    // const auto hasInspPlan = !_guiDTO.getInspectionPlan().getInspectionTaskList().isEmpty();
     const auto hasInspPlan = !_guiDTO.getInspectionPlan().getUUID().isEmpty();
 
     _ui->saveCurrWptsListAct->setEnabled(hasInspPlan && hasRoutes);

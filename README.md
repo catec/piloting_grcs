@@ -2,6 +2,9 @@
 
 This repository contains the gRCS (General Robot Control Station) developments of the PILOTING H2020 project.
 
+In the following video you can see the complete integration with the PILOTING ecosystem. 
+In particular, a real use case of visual inspection on a viaduct is shown: [PILOTING I&M Platform – Workflow](https://www.youtube.com/watch?v=_UPj5b1k2JA).
+
 <img src="./doc/overview_grcs.png" alt="gRCS" height="70%" width="70%">
 
 ## Dependencies installation
@@ -26,6 +29,27 @@ Clone [QsLog](https://github.com/fada-catec/qslog) on your third-party dependenc
 
 Follow up your ROS distro installation guide: [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) or [Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu)
 
+### (Optional) Clang-Format 16
+
+```
+sudo add-apt-repository 'deb http://apt.llvm.org/focal/ llvm-toolchain-focal main'
+sudo apt update
+sudo apt install clang-format-16
+```
+
+* **Troubleshooting installing clang-format**
+
+If you end up with a missing key error like this one:
+```bash
+Err:1 https://apt.llvm.org/focal llvm-toolchain-focal InRelease 
+The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 15CF4D18AF4F7421 
+```
+
+You can solve it by adding that necessary key:
+```bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 15CF4D18AF4F7421 
+sudo apt update
+```
 
 ### PILOTING MAVSDK
 On your third-party dependencies folder:
@@ -54,7 +78,7 @@ cd .. && catkin_make -DCMAKE_BUILD_TYPE=Release
 
 * Via the default way of cmake creating a build folder:
 ```
-git clone https://github.com/fada-catec/piloting_grcs && cd piloting_gcs
+git clone https://github.com/fada-catec/piloting_grcs && cd piloting_grcs
 
 mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release
 
@@ -111,8 +135,7 @@ Follow the README file located inside the [docker folder](./docker/).
 Supported by PILOTING - PILOTs for robotic INspection and maintenance Grounded on advanced intelligent platforms and prototype applications.
 More information: <a href="https://piloting-project.eu/">piloting-project.eu</a>
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/200px-Flag_of_Europe.svg.png" 
-     alt="eu_flag" height="45" align="left" >  
+<img src="./doc/eu_flag.png" alt="eu_flag" height="45" align="left" >  
 
 This project has received funding from the European Union's Horizon 2020  
 research and innovation programme under grant agreement 871542.

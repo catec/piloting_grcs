@@ -4,10 +4,9 @@
         <file alias="3d-view">../data/icons/3d-view.png</file>
         <file alias="checkbox_checked">../data/icons/checkbox-icon.png</file>
         <file alias="checklist">../data/icons/checklist.png</file>
-        <file alias="cloud-icon">../data/icons/cloud-icon.png</file>
         <file alias="cloud-cut">../data/icons/cloud-cut.png</file>
         <file alias="config">../data/icons/config.png</file>
-        <file alias="config-visualiz">../data/icons/config-visualiz-icon-2.png</file>
+        <file alias="config-visualiz">../data/icons/config-visualiz-icon.png</file>
         <file alias="connect">../data/icons/connect.png</file>
         <file alias="ddhl-config">../data/icons/ddhl-config.png</file>
         <file alias="disconnect">../data/icons/disconnect.png</file>
@@ -52,6 +51,7 @@
         <file alias="pfd_hsi_marks">../data/svg/pfd/pfd_hsi_marks.svg</file>
         <file alias="pfd_mask">../data/svg/pfd/pfd_mask.svg</file>
     </qresource>
+    
     <qresource prefix="/Style">
         <file alias="indoorStyle">../data/styles/indoor_style.qss</file>
         <file alias="outdoorStyle">../data/styles/outdoor_style.qss</file>
