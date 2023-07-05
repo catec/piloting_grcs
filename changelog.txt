@@ -1,4 +1,20 @@
 ----------------------------------------------
+-- Changelog for version 1.0.4 (2023-07-05) --
+----------------------------------------------
+The changes of this version are small improvements after the release of the code and a the fix of a bug in the representation of the Inspection Areas.
+
+* In DDHL, new fields have been added in the Inspection Location properties to define the Inspection Plan orientation in the global 
+  reference frame: quatW, quatX, quatY and quatZ. These fields are read instead of the "repr" matrix to represent the Inspection Area.
+
+* When using "Ctrl + Arrows Keys" to edit a waypoint manually in route editing mode the last one was moved. Now the one that is selected 
+  in the gRCS is edited. 
+
+* Added server response to the logging message when POST call fails during post-mission data upload.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------
 -- Changelog for version 1.0.3 (2023-05-21) --
 ----------------------------------------------
 These changes are due to bugs reported by partners and some additional improvements.

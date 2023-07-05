@@ -61,19 +61,22 @@ void JSonKeys::checkIfValidInspTaskLocation(const QJsonObject& inspTaskLocation)
     checkKeyExist(inspTaskLocation, "Properties");
 }
 
-void JSonKeys::checkIfValidInspTaskAreaDimensions(const QJsonObject& inspTaskAreaDimensions)
+void JSonKeys::checkIfValidInspTaskAreaParams(const QJsonObject& inspTaskAreaParams)
 {
-    checkKeyExist(inspTaskAreaDimensions, "width");
-    checkKeyExist(inspTaskAreaDimensions, "depth");
-    checkKeyExist(inspTaskAreaDimensions, "height");
-    checkKeyExist(inspTaskAreaDimensions, "repr");
+    checkKeyExist(inspTaskAreaParams, "width");
+    checkKeyExist(inspTaskAreaParams, "depth");
+    checkKeyExist(inspTaskAreaParams, "height");
+    checkKeyExist(inspTaskAreaParams, "quatW");
+    checkKeyExist(inspTaskAreaParams, "quatX");
+    checkKeyExist(inspTaskAreaParams, "quatY");
+    checkKeyExist(inspTaskAreaParams, "quatZ");
 }
 
-void JSonKeys::checkIfValidInspTaskPointDimensions(const QJsonObject& inspTaskPointDimensions)
+void JSonKeys::checkIfValidInspTaskPointParams(const QJsonObject& inspTaskPointParams)
 {
-    checkKeyExist(inspTaskPointDimensions, "posX");
-    checkKeyExist(inspTaskPointDimensions, "posY");
-    checkKeyExist(inspTaskPointDimensions, "posZ");
+    checkKeyExist(inspTaskPointParams, "posX");
+    checkKeyExist(inspTaskPointParams, "posY");
+    checkKeyExist(inspTaskPointParams, "posZ");
 }
 
 void JSonKeys::checkIfValidInspTaskType(const QJsonObject& inspTaskType)

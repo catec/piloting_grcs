@@ -177,7 +177,8 @@ void RestApiClient::handlePostResult(HttpRequestWorker* worker)
         QLOG_INFO() << __PRETTY_FUNCTION__ << "Post request response: " << worker->response;
 
         if (worker->error_type != QNetworkReply::NoError) {
-            throw std::runtime_error(worker->error_str.toStdString());
+            throw std::runtime_error(
+                    worker->error_str.toStdString() + " | Server Response: " + worker->response.toStdString());
         }
 
         QJsonParseError* e            = nullptr;

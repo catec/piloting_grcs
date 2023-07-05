@@ -78,7 +78,7 @@ cd .. && catkin_make -DCMAKE_BUILD_TYPE=Release
 
 * Via the default way of cmake creating a build folder:
 ```
-git clone https://github.com/fada-catec/piloting_grcs && cd piloting_gcs
+git clone https://github.com/fada-catec/piloting_grcs && cd piloting_grcs
 
 mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release
 
