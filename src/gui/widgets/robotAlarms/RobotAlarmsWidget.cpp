@@ -140,7 +140,7 @@ void RobotAlarmsWidget::update(const AlarmStatusDTO& alarmStatusDTO)
 
     const auto current_item = _items[alarmStatusDTO.getIndex()];
     if (!current_item) {
-        QLOG_ERROR() << __PRETTY_FUNCTION__ << "Invalid alarm index to update";
+        QLOG_ERROR() << __PRETTY_FUNCTION__ << "Invalid alarm index to update: " << alarmStatusDTO.getIndex();
         return;
     }
 
