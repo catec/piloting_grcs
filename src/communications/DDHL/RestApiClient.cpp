@@ -174,21 +174,21 @@ void RestApiClient::handlePostResult(HttpRequestWorker* worker)
     QLOG_TRACE() << __PRETTY_FUNCTION__;
 
     try {
-        QLOG_INFO() << __PRETTY_FUNCTION__ << "Post request response: " << worker->response;
+        QLOG_INFO() << __PRETTY_FUNCTION__ << "Post request response: " << worker->getResponse();
 
-        if (worker->error_type != QNetworkReply::NoError) {
+        if (worker->getErrorType() != QNetworkReply::NoError) {
             throw std::runtime_error(
-                    worker->error_str.toStdString() + " | Server Response: " + worker->response.toStdString());
+                    worker->getErrorStr().toStdString() + " | Server Response: " + worker->getResponse().toStdString());
         }
 
         QJsonParseError* e            = nullptr;
-        QJsonDocument    jsonResponse = QJsonDocument::fromJson(worker->response, e);
+        QJsonDocument    jsonResponse = QJsonDocument::fromJson(worker->getResponse(), e);
         if (e != nullptr) {
             throw std::runtime_error(e->errorString().toStdString());
         }
 
         if (jsonResponse.isEmpty()) {
-            throw std::runtime_error(QString(worker->response).toStdString());
+            throw std::runtime_error(QString(worker->getResponse()).toStdString());
         }
 
         QLOG_DEBUG().noquote() << __PRETTY_FUNCTION__ << jsonResponse.toJson(QJsonDocument::Indented);
@@ -215,12 +215,12 @@ void RestApiClient::handleGetSiteListJSonResult(HttpRequestWorker* worker)
     QLOG_TRACE() << __PRETTY_FUNCTION__;
 
     try {
-        if (worker->error_type != QNetworkReply::NoError) {
-            throw std::runtime_error(worker->error_str.toStdString());
+        if (worker->getErrorType() != QNetworkReply::NoError) {
+            throw std::runtime_error(worker->getErrorStr().toStdString());
         }
 
         QJsonParseError* e            = nullptr;
-        QJsonDocument    jsonResponse = QJsonDocument::fromJson(worker->response, e);
+        QJsonDocument    jsonResponse = QJsonDocument::fromJson(worker->getResponse(), e);
         QLOG_DEBUG().noquote() << __PRETTY_FUNCTION__ << jsonResponse.toJson(QJsonDocument::Indented);
         if (e != nullptr) {
             throw std::runtime_error(e->errorString().toStdString());
@@ -253,12 +253,12 @@ void RestApiClient::handleGetInspectionPlanJSonResult(HttpRequestWorker* worker)
     QLOG_TRACE() << __PRETTY_FUNCTION__;
 
     try {
-        if (worker->error_type != QNetworkReply::NoError) {
-            throw std::runtime_error(worker->error_str.toStdString());
+        if (worker->getErrorType() != QNetworkReply::NoError) {
+            throw std::runtime_error(worker->getErrorStr().toStdString());
         }
 
         QJsonParseError* e            = nullptr;
-        QJsonDocument    jsonResponse = QJsonDocument::fromJson(worker->response, e);
+        QJsonDocument    jsonResponse = QJsonDocument::fromJson(worker->getResponse(), e);
         if (e != nullptr) {
             throw std::runtime_error(e->errorString().toStdString());
         }
@@ -294,8 +294,8 @@ void RestApiClient::handleGetPCDResult(HttpRequestWorker* worker)
     QLOG_TRACE() << __PRETTY_FUNCTION__;
 
     try {
-        if (worker->error_type != QNetworkReply::NoError) {
-            throw std::runtime_error(worker->error_str.toStdString());
+        if (worker->getErrorType() != QNetworkReply::NoError) {
+            throw std::runtime_error(worker->getErrorStr().toStdString());
         }
 
         auto pcdFileName = QString(QTime::currentTime().toString("hh:mm:ss"));
@@ -305,7 +305,7 @@ void RestApiClient::handleGetPCDResult(HttpRequestWorker* worker)
             auto msg = QString("Cannot create temporary file %1").arg(file.fileName());
             throw std::runtime_error("cannot open file");
         }
-        file.write(worker->response);
+        file.write(worker->getResponse());
 
         Q_EMIT downloadedAssetFile(file);
     } catch (const std::exception& e) {
