@@ -1,4 +1,12 @@
 ----------------------------------------------
+-- Changelog for version 1.1.0 (2023-07-24) --
+----------------------------------------------
+Fixed important bug in uploading post-mission data.
+
+This bug would not allow uploading post-mission data from gRCS. This error displayed in the terminal the message "Something went wong!" and was due to 
+the HTTPRequestWorker implementation when creating the message for the POST upload request.
+
+----------------------------------------------
 -- Changelog for version 1.0.4 (2023-07-05) --
 ----------------------------------------------
 The changes of this version are small improvements after the release of the code and a the fix of a bug in the representation of the Inspection Areas.

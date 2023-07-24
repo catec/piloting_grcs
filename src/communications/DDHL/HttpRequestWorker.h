@@ -19,10 +19,9 @@ class HttpRequestWorker : public QObject
 
     void execute(HttpRequestInput*);
 
-    QNetworkReply::NetworkError error_type;
-    QByteArray                  response;
-    QString                     error_str;
-    QByteArray                  request_content{""};
+    QNetworkReply::NetworkError getErrorType() const;
+    QByteArray                  getResponse() const;
+    QString                     getErrorStr() const;
 
   public Q_SLOTS:
     void abort();
@@ -33,22 +32,16 @@ class HttpRequestWorker : public QObject
 
   private:
     QString httpAttributeEncode(const QString&, const QString&);
-    void    resetVariables();
-    void    setVarLayout(HttpRequestInput*);
-    void    prepareRequestConnection(HttpRequestInput*);
-    void    prepareConnection(HttpRequestInput*);
-    void    prepareUrlEncodedContent(HttpRequestInput*);
-    void    prepareMultipartContent(HttpRequestInput*);
-    void    prepareRequestContent(HttpRequestInput*);
-    void    prepareMultipartVar(const QString& key, const QString& value);
+
+    void generateRequestContent(HttpRequestInput& input, QByteArray& request_content, QString& boundary);
+    void executeRequest(HttpRequestInput* input, QByteArray request_content, QString boundary);
 
     QNetworkAccessManager* _manager;
     QNetworkReply*         _reply;
 
-    const QString _boundary = "__-----------------------" + QString::number(QDateTime::currentDateTime().toTime_t())
-                            + QString::number(qrand());
-    const QString _boundary_delimiter = "--";
-    const QString _new_line           = "\r\n";
+    QNetworkReply::NetworkError _errorType;
+    QByteArray                  _response;
+    QString                     _errorStr;
 
   Q_SIGNALS:
     void executionFinished(HttpRequestWorker* worker);
