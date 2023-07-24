@@ -2,7 +2,7 @@
 <package format="2">
 
    <name>piloting_grcs</name>
-   <version>1.0.4</version>
+   <version>1.1.0</version>
    <description>The piloting_grcs package</description>
 
    <maintainer email="mmontes@catec.aero">Marco A. Montes Grova</maintainer>
