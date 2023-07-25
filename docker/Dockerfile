@@ -4,7 +4,7 @@ FROM osrf/ros:melodic-desktop-bionic
 
 # install build dependacies
 RUN apt-get update && \
-    apt-get install -y apt-utils make python-catkin-tools qt5-default ros-melodic-pcl-ros nano
+    apt-get install -y apt-utils make python-catkin-tools qt5-default ros-melodic-pcl-ros nano curl
 
 # Create third party folder
 ARG THIRD_PARTY_PATH=/root/third_party
@@ -48,6 +48,10 @@ RUN cd $PILOTING_WS/build && make install
 WORKDIR "/root"
 RUN rm -r $PILOTING_WS
 RUN rm -r $THIRD_PARTY_PATH
+
+RUN grcs_version="$(curl -s https://raw.githubusercontent.com/fada-catec/piloting_grcs/main/cmake_stuff/versions.cmake | sed -e '1q;d' | sed -e 's/.*"\(.*\)".*/\1/')" && \
+    echo "GRCS_VERSION=$grcs_version" && \
+    echo "export GRCS_VERSION=$grcs_version" >> /opt/ros/$ROS_DISTRO/setup.bash
 
 # setup entrypoint
 COPY ./entrypoint.sh /
