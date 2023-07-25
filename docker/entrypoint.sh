@@ -7,7 +7,7 @@ source "/opt/ros/$ROS_DISTRO/setup.bash"
 echo ""
 echo "---------------------------------------------------------"
 echo "-----   PILOTING General Robot Control Station   --------"
-echo "-----             Version: 1.0.3                 --------"
+echo "-----             Version: $GRCS_VERSION                 --------"
 echo "---------------------------------------------------------"
 echo ""
 
